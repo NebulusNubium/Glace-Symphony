@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddDessertController!{% endblock %}
+
+{% block main %}
+    {{form_start(glaceForm)}}
+        {{ form_widget(glaceForm) }}
+        <button>Ajouter</button>
+    {{form_end(glaceForm)}}
+    
+    
+{% endblock %}

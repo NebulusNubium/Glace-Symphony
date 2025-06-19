@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GalleryController!{% endblock %}
+
+{% block main %}
+{% for glace in glaces %}
+    <h1>{{ Gallery.nom}} </h1>
+{% endfor %}
+{% endblock %}
