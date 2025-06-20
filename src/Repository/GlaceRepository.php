@@ -2,18 +2,18 @@
 
 namespace App\Repository;
 
-use App\Entity\Gallery;
+use App\Entity\Glace;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Gallery>
+ * @extends ServiceEntityRepository<Glace>
  */
-class GalleryRepository extends ServiceEntityRepository
+class GlaceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Gallery::class);
+        parent::__construct($registry, Glace::class);
     }
 
     //    /**

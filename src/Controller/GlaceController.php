@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
-use App\Repository\GalleryRepository;
+use App\Repository\GlaceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class GalleryController extends AbstractController
+final class GlaceController extends AbstractController
 {
-    #[Route('/gallery', name: 'gallery')]
-    public function index(GalleryRepository $repository): Response
+    #[Route('/glace', name: 'glace')]
+    public function index(GlaceRepository $repository): Response
     {
         
         $glaces = $repository->findAll();
-        return $this->render('gallery/gallery.html.twig', [
+        return $this->render('glace/glace.html.twig', [
         'glaces'=>$glaces,
         ]);
     }

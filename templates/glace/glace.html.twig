@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GalleryController!{% endblock %}
+
+{% block main %}
+{% for glace in glaces %}
+    <h1>Nom:{{ glace.nom}} </h1>
+    <p>Type de Cone:{{glace.Cone.ConeType}}</p>
+    <p>Le petit truc en plus: {{glace.IngredientSpecial}}</p>
+    <a href="{{path('updateDessert',{'id' : glace.id})}}">modifier</a>
+{% endfor %}
+{% endblock %}

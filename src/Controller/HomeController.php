@@ -11,9 +11,7 @@ final class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        $glaces = $repository->findAll();
         return $this->render('home/home.html.twig', [
-            'glaces'=>$glaces,
         ]);
     }
 }

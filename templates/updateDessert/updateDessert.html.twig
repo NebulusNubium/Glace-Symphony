@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddDessertController!{% endblock %}
+
+{% block main %}
+    {{form_start(updateForm)}}
+        {{ form_widget(updateForm) }}
+        <button>Modifier</button>
+    {{form_end(updateForm)}}
+    
+    
+{% endblock %}
