@@ -8,5 +8,10 @@
     <p>Type de Cone:{{glace.Cone.ConeType}}</p>
     <p>Le petit truc en plus: {{glace.IngredientSpecial}}</p>
     <a href="{{path('updateDessert',{'id' : glace.id})}}">modifier</a>
+    <form action="{{ path('deleteDessert', {'id': glace.id})}}" method="post" onsubmit="return confirm('Confirmer la suppression?')">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ glace.id)}}">
+        <input type="submit" value="Supprimer" id="delete">
+    </form>
 {% endfor %}
 {% endblock %}
