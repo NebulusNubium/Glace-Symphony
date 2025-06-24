@@ -358,3 +358,18 @@ nav {
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+//footer
+.site-footer {
+    background-color: #fdeaea; 
+    color: #5c3d2e;          
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+    border-top: 3px double #f8c291;
+    margin-top: 3rem;
+}
+
+.footer-content p {
+    margin: 0.4rem 0;
+}
