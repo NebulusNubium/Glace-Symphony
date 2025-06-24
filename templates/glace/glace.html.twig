@@ -3,15 +3,32 @@
 {% block title %}Hello GalleryController!{% endblock %}
 
 {% block main %}
-{% for glace in glaces %}
-    <h1>Nom:{{ glace.nom}} </h1>
-    <p>Type de Cone:{{glace.Cone.ConeType}}</p>
-    <p>Le petit truc en plus: {{glace.IngredientSpecial}}</p>
-    <a href="{{path('updateDessert',{'id' : glace.id})}}">modifier</a>
-    <form action="{{ path('deleteDessert', {'id': glace.id})}}" method="post" onsubmit="return confirm('Confirmer la suppression?')">
-        <input type="hidden" name="_method" value="delete">
-        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ glace.id)}}">
-        <input type="submit" value="Supprimer" id="delete">
-    </form>
-{% endfor %}
+<section id="liste">
+    {% for glace in glaces %}
+        <div class="card">
+            <h2>{{ glace.nom }}</h2>
+            <p><strong>Type de cône :</strong> {{ glace.cone.coneType }}</p>
+            <p><strong>Le petit truc en plus :</strong> {{ glace.ingredientSpecial }}</p>
+            <p><strong>Les toppings :</strong>
+                {% for topping in glace.topping %}
+                    {{ topping.toppingType }}{% if not loop.last %}, {% endif %}
+                {% else %}
+                    Aucun
+                {% endfor %}
+            </p>
+            <div class="image">
+                <img src="{{ asset('uploads/images/' ~ glace.imageName) }}" alt="img">
+            </div>
+            <div class="actions">
+                <a class="modifier" href="{{ path('updateDessert', {'id': glace.id}) }}">Modifier</a>
+                <form action="{{ path('deleteDessert', {'id': glace.id}) }}" method="post" onsubmit="return confirm('Confirmer la suppression?')">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ glace.id) }}">
+                    <input type="submit" value="Supprimer" class="supprimer">
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
 {% endblock %}
