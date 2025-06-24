@@ -101,7 +101,10 @@ class Glace
             $this->updatedAt = new \DateTimeImmutable();
         }
     } 
-
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
     public function setImageName(?string $imageName): void
     {
         $this->imageName = $imageName;
