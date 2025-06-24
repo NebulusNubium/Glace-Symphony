@@ -3,10 +3,36 @@
 {% block title %}Hello AddDessertController!{% endblock %}
 
 {% block main %}
-    {{form_start(glaceForm)}}
-        {{ form_widget(glaceForm) }}
-        <button>Ajouter</button>
-    {{form_end(glaceForm)}}
-    
-    
+    <h1>Ajouter une Glace</h1>
+    {{ form_start(glaceForm, {'attr': {'class': 'glace-form'}}) }}
+
+    <div class="form-group">
+        {{ form_label(glaceForm.nom) }}
+        {{ form_widget(glaceForm.nom, {'attr': {'class': 'input'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(glaceForm.ingredientSpecial) }}
+        {{ form_widget(glaceForm.ingredientSpecial, {'attr': {'class': 'input'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(glaceForm.cone) }}
+        {{ form_widget(glaceForm.cone, {'attr': {'class': 'select'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(glaceForm.topping) }}
+        {{ form_widget(glaceForm.topping) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(glaceForm.imageFile) }}
+        {{ form_widget(glaceForm.imageFile, {'attr': {'class': 'file-input'}}) }}
+    </div>
+
+    <button class="submit-button">Ajouter</button>
+
+    {{ form_end(glaceForm) }}
 {% endblock %}
+

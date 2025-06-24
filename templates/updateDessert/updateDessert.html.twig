@@ -3,10 +3,45 @@
 {% block title %}Hello AddDessertController!{% endblock %}
 
 {% block main %}
-    {{form_start(updateForm)}}
-        {{ form_widget(updateForm) }}
-        <button>Modifier</button>
-    {{form_end(updateForm)}}
-    
-    
+    <h1 class="form-title">Modifier la Glace</h1>
+
+    {{ form_start(updateForm, {'attr': {'class': 'update-form'}}) }}
+
+    <div class="form-group">
+        {{ form_label(updateForm.nom) }}
+        {{ form_widget(updateForm.nom, {'attr': {'class': 'input'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(updateForm.ingredientSpecial) }}
+        {{ form_widget(updateForm.ingredientSpecial, {'attr': {'class': 'input'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(updateForm.cone) }}
+        {{ form_widget(updateForm.cone, {'attr': {'class': 'select'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(updateForm.topping) }}
+        {{ form_widget(updateForm.topping) }}
+    </div>
+
+    <div class="form-group">
+    {% if updateForm.vars.value.imageName %}
+    <div class="form-group">
+        <label>Image actuelle :</label>
+        <div class="preview-image">
+            <img src="{{ asset('uploads/images/' ~ updateForm.vars.value.imageName) }}" alt="Image actuelle">
+        </div>
+    </div>
+{% endif %}
+        {{ form_label(updateForm.imageFile) }}
+        {{ form_widget(updateForm.imageFile, {'attr': {'class': 'file-input'}}) }}
+    </div>
+
+    <button class="submit">Modifier</button>
+
+    {{ form_end(updateForm) }}
 {% endblock %}
+

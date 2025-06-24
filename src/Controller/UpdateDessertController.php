@@ -20,7 +20,7 @@ final class UpdateDessertController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($glace);
             $entityManager->flush();
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('glace');
         }
         return $this->render('updateDessert/updateDessert.html.twig', [
             'updateForm'=> $form->createView(),

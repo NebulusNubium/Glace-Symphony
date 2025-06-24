@@ -1,22 +1,58 @@
 body {
-    background-color: rgb(235, 135, 135);
+    background-image: url(../../public/img/premium_photo-1663837827377-d28df735ec75.avif);
     font-family: Arial, sans-serif;
+    margin: 0;
+    h1{
+        text-align: center;
+    }
+}
+//Nav Barre
+
+nav ul li a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  color: #e6b8a1; // marron glacé
+  background-color: #c25277; // rose léger
+  border: 3px solid #f8c291; // pêche pastel
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #f8c291, #fcd5ce); // effet caramel-vanille
+  transition: top 0.3s ease-in-out;
+  z-index: -1;
+}
+
+nav ul li a:hover::before {
+  top: 0;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(255, 183, 197, 0.3);
+  border-color: #f6b093;
+}
 nav {
+    background-color: white;
+    padding: 1rem 0;
+    background-image: url(../../public/img/xinyi-wen-qjCHPZbeXCQ-unsplash.jpg);
     ul {
         list-style: none;
         display: flex;
         justify-content: space-around;
-        li{
-            a{
-                text-decoration: none;
-                color: white;
-            }
-        }
     }
 }
-
 #liste {
     display: flex;
     flex-wrap: wrap;
@@ -61,23 +97,196 @@ nav {
         justify-content: space-between;
         align-items: center;
 
-        .modifier {
-            color: white;
-            background: #2196f3;
+        .modifier,
+        .supprimer {
             padding: 0.3rem 0.8rem;
-            text-decoration: none;
-            border-radius: 4px;
             font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .modifier {
+            background: #2196f3;
+            color: white;
+            text-decoration: none;
         }
 
         .supprimer {
             background: #f44336;
             color: white;
             border: none;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.8rem;
         }
+    }
+}
+
+// Formulaires (inscription, login, ajout glace)
+.glace-form,
+.registration-form,
+.login-form, .updateForm {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(243, 156, 18, 0.2);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background: #fffaf0;
+}
+
+.registration-form {
+    background: #fff5f0;
+}
+
+.login-form {
+    background: #fdf2f2;
+}
+
+.form-title,
+.registration-form h1 {
+    text-align: center;
+    color: #f1948a;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: bold;
+        color: #5c3d2e;
+    }
+}
+
+.input,
+.select,
+.file-input {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    background: #fffaf0;
+    transition: border 0.3s ease;
+    border: 2px solid #f8c291;
+
+    &:focus {
+        border-color: #e59866;
+        outline: none;
+    }
+}
+
+.submit,
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: #f7b7a3;
+    color: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #f1948a;
+    }
+}
+
+.alert-error {
+    background-color: #ffe6e6;
+    border-left: 5px solid #e74c3c;
+    color: #c0392b;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.already-logged {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #5c3d2e;
+}
+
+//modifier la glace
+.update-form {
+    max-width: 520px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fffaf0; // fond vanille
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(243, 156, 18, 0.2);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.form-title {
+    text-align: center;
+    color: #f1948a; // fraise douce
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #5c3d2e; // marron chocolat
+    }
+}
+
+.input,
+.select,
+.file-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 2px solid #f8c291;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        border-color: #e59866;
+        outline: none;
+    }
+}
+
+.preview-image {
+    margin: 1rem 0;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+    }
+
+    img:hover {
+        transform: scale(1.02);
+    }
+}
+
+.submit {
+    display: block;
+    width: 100%;
+    background-color: #f7b7a3;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #f1948a;
     }
 }
