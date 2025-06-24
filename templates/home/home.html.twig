@@ -3,4 +3,17 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block main %}
+    <section class="home-section">
+        <h1 class="home-title">Bienvenue sur GlaçantFaite 🍦</h1>
+        <p class="home-subtitle">Découvrez nos créations glacées artisanales, personnalisables et délicieusement originales !</p>
+
+        <div class="home-actions">
+            <a href="{{ path('glace') }}" class="btn-main">Voir les glaces</a>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path('addDessert') }}" class="btn-secondary">Ajouter une glace</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="btn-secondary">Se connecter</a>
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}
